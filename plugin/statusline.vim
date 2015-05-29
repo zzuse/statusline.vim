@@ -24,18 +24,27 @@
 
 set laststatus=2
 set statusline=
-set statusline+=%1*%-52F\ 
-set statusline+=%2*\ %{&ff=='unix'?'\\n':(&ff=='mac'?'\\r':'\\r\\n')}\ 
+"set statusline+=%1*%-52F\ 
+"set statusline+=%2*\ %{&ff=='unix'?'\\n':(&ff=='mac'?'\\r':'\\r\\n')}\ 
 set statusline+=%3*\ %{&fenc!=''?&fenc:&enc}\ 
 set statusline+=%1*\ %Y\ 
 set statusline+=%4*\ %04l/%03c\ 
 set statusline+=%2*\ 0x%04.4B\ 
 set statusline+=%1*\ %-16{strftime(\"%Y-%m-%d\ %H:%M\")}\ 
 set statusline+=%5*\ %-3m\ 
+set statusline+=%2*\ %{&ff=='unix'?'\\n':(&ff=='mac'?'\\r':'\\r\\n')}\ 
+set statusline+=%1*%-52F\ 
 
-
-hi User1 guifg=#112605  guibg=#aefe7B gui=italic
-hi User2 guifg=#391100  guibg=#d3905c gui=italic
-hi User3 guifg=#292b00  guibg=#f4f597 gui=italic
-hi User4 guifg=#051d00  guibg=#7dcc7d gui=italic
-hi User5 guifg=#002600  guibg=#67ab6e gui=italic
+if has ("gui_running") 
+	hi User1 guifg=#112605  guibg=#aefe7B gui=italic
+	hi User2 guifg=#391100  guibg=#d3905c gui=italic
+	hi User3 guifg=#292b00  guibg=#f4f597 gui=italic
+	hi User4 guifg=#051d00  guibg=#7dcc7d gui=italic
+	hi User5 guifg=#002600  guibg=#67ab6e gui=italic
+else
+	hi User1 ctermfg=99  ctermbg=16 cterm=italic
+	hi User2 ctermfg=189  ctermbg=15 cterm=italic
+	hi User3 ctermfg=179  ctermbg=14 cterm=italic
+	hi User4 ctermfg=169  ctermbg=13 cterm=italic
+	hi User5 ctermfg=159  ctermbg=12 cterm=italic
+endif
